@@ -193,8 +193,8 @@
 
     <h3>跳转</h3>
     <ul>
-        <li><a href="?nextpage=1">Regular link #1</a> (opens inside webview)</li>
-        <li><a href="https://test.algo724.com/" target="_blank">target="_blank" link</a> 跳转</li>
+        <!-- <li><a href="?nextpage=1">Regular link #1</a> (opens inside webview)</li> -->
+        <!-- <li><a href="https://test.algo724.com/" target="_blank">跳转algo724</a> 跳转algo724</li> -->
         <li><a href="javascript:window.open('https://test.algo724.com/');">浏览器打开网页</a></li>
     </ul>
 
@@ -244,10 +244,10 @@
         const mainButton = Telegram.WebApp.MainButton;
         if (mainButton.isVisible) {
             mainButton.hide();
-            el.innerHTML = 'Show Main Button';
+            el.innerHTML = '显示按钮';
         } else {
             mainButton.show();
-            el.innerHTML = 'Hide Main Button';
+            el.innerHTML = '隐藏按钮';
         }
     }
 
@@ -273,7 +273,7 @@
                 document.querySelector('#locationData').innerHTML = '(' + position.coords.latitude + ', ' + position.coords.longitude + ')';
             });
         } else {
-            document.querySelector('#locationData').innerHTML = '(Geolocation is not supported in this browser)';
+            document.querySelector('#locationData').innerHTML = '浏览器不支持';
         }
 
         return false;
@@ -282,10 +282,10 @@
     function requestVideo() {
         if (navigator.mediaDevices) {
             navigator.mediaDevices.getUserMedia({ audio: false, video: true }).then(function(stream) {
-                document.querySelector('#videoData').innerHTML = '(Access granted)';
+                document.querySelector('#videoData').innerHTML = '权限获取成功';
             });
         } else {
-            document.querySelector('#videoData').innerHTML = '(Media devices is not supported in this browser)';
+            document.querySelector('#videoData').innerHTML = '浏览器不支持';
         }
         return false;
     }
@@ -293,10 +293,10 @@
     function requestAudio() {
         if (navigator.mediaDevices) {
             navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then(function(stream) {
-                document.querySelector('#audioData').innerHTML = '(Access granted)';
+                document.querySelector('#audioData').innerHTML = '权限获取成功';
             });
         } else {
-            document.querySelector('#audioData').innerHTML = '(Media devices is not supported in this browser)';
+            document.querySelector('#audioData').innerHTML = '浏览器不支持';
         }
         return false;
     }
