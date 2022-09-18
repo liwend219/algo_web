@@ -185,43 +185,38 @@
     <h1 id="greeting"></h1>
 
     <div id="buttons">
-        <button onclick="webviewExpand();">Expand Webview</button>
-        <small>(The window goes fullscreen)</small>
-        <button onclick="toggleMainButton(this);">Hide Main Button</button>
-        <small>(It hides/shows main button)</small>
-        <button id="btnTime" onclick="sendTime(10);">Send time</button>
-        <small>(The bot will recieve a message with filled <code>web_app_data</code> field)</small>
+        <button onclick="webviewExpand();">全屏展示</button>
+        <button onclick="toggleMainButton(this);">隐藏按钮</button>
+        <!-- <button id="btnTime" onclick="sendTime(10);">Send time</button> -->
+        <!-- <small>(The bot will recieve a message with filled <code>web_app_data</code> field)</small> -->
     </div>
 
-    <h3>Test links</h3>
+    <h3>跳转</h3>
     <ul>
         <li><a href="?nextpage=1">Regular link #1</a> (opens inside webview)</li>
-        <li><a href="https://telegram.org/" target="_blank">target="_blank" link</a> (opens outside webview)</li>
-        <li><a href="javascript:window.open('https://telegram.org/');">window.open() link</a> (opens outside
-            webview)</li>
-        <li><a href="https://t.me/like">LikeBot t.me link</a> (opens inside Telegram app)</li>
-        <li><a href="tg://resolve?domain=vote">VoteBot tg:// link</a> (does not open)</li>
+        <li><a href="https://test.algo724.com/" target="_blank">target="_blank" link</a> 跳转</li>
+        <li><a href="javascript:window.open('https://test.algo724.com/');">浏览器打开网页</a></li>
     </ul>
 
-    <h3>Test permissions</h3>
+    <h3>权限</h3>
     <ul>
         <li>
-            <a href="javascript:;" onclick="return requestLocation();">Request Location</a>
+            <a href="javascript:;" onclick="return requestLocation();">请求位置权限</a>
             <span id="locationData"></span>
         </li>
         <li>
-            <a href="javascript:;" onclick="return requestVideo();">Request Video</a>
+            <a href="javascript:;" onclick="return requestVideo();">请求摄像头权限</a>
             <span id="videoData"></span>
         </li>
         <li>
-            <a href="javascript:;" onclick="return requestAudio();">Request Audio</a>
+            <a href="javascript:;" onclick="return requestAudio();">请求麦克风权限</a>
             <span id="audioData"></span>
         </li>
     </ul>
 
-    <h3>Init Data: </h3>
+    <h3>初始化信息: </h3>
     <pre id="initData"></pre>
-    <h3>Init Data (unsafe): </h3>
+    <h3>你的信息: </h3>
     <pre id="initDataUnsafe"></pre>
 </section>
 
@@ -265,6 +260,7 @@
     }
 
     function sendTime(spam) {
+        console.log(Telegram)
         const repeat = spam ? 10 : 1;
         for (let i = 0; i < repeat; i++) {
             Telegram.WebApp.sendData(new Date().toString());
